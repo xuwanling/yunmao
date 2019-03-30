@@ -1,0 +1,29 @@
+plugins {
+    //使用springboot提供的打包方法
+    id 'org.springframework.boot' version '2.0.8.RELEASE'
+    id 'java'
+}
+
+version '1.0'
+
+sourceCompatibility = 1.8
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    testCompile group: 'junit', name: 'junit', version: '4.12'
+
+    //用于读取properties中的配置数据
+    compile group: 'org.apache.commons', name: 'commons-configuration2', version: '2.4'
+    compile group: 'commons-beanutils', name: 'commons-beanutils', version: '1.9.3'
+
+    //vertx
+    compile group: 'io.vertx', name: 'vertx-web', version: '3.5.4'
+
+    //日志工具
+    compile group: 'org.slf4j', name: 'slf4j-api', version: '1.7.25'
+    compile group: 'ch.qos.logback', name: 'logback-classic', version: '1.2.3'
+    compile group: 'org.apache.logging.log4j', name: 'log4j-core', version: '2.11.1'
+}

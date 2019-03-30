@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/yunmao_center.iml" filepath="$PROJECT_DIR$/.idea/modules/yunmao_center.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/yunmao_center_main.iml" filepath="$PROJECT_DIR$/.idea/modules/yunmao_center_main.iml" group="yunmao_center" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/yunmao_center_test.iml" filepath="$PROJECT_DIR$/.idea/modules/yunmao_center_test.iml" group="yunmao_center" />
+    </modules>
+  </component>
+</project>

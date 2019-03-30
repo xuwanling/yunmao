@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration debug="false" scan="true" scanPeriod="30 seconds" packagingData="true">
+    <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
+            <!--格式化输出：%d表示日期，%thread表示线程名，%-5level：级别从左显示5个字符宽度%msg：日志消息，%n是换行符-->
+            <pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger{50} - %msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <appender name="FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <!-- 当前活动日志文件名 -->
+        <file>./log/yunmao_center.log</file>
+        <!-- 追加日志到原文件结尾 -->
+        <append>true</append>
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <!--日志文件输出的文件名-->
+            <FileNamePattern>./log/yunmao_center.%d{yyyy-MM-dd}.%i.log</FileNamePattern>
+            <!--日志文件保留天数-->
+            <MaxHistory>30</MaxHistory>
+            <!-- 设置当前日志的文件的大小，决定日志翻滚 -->
+            <timeBasedFileNamingAndTriggeringPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">
+                <!-- 除按日志记录之外，还配置了日志文件不能超过10M(默认)，若超过10M，日志文件会以索引0开始， -->
+                <maxFileSize>10MB</maxFileSize>
+            </timeBasedFileNamingAndTriggeringPolicy>
+        </rollingPolicy>
+
+        <encoder>
+            <pattern>%d{HH:mm:ss.SSS}[%-5level][%thread]%logger{36} - %msg%n</pattern>
+            <!-- <pattern>%d{HH:mm:ss.SSS}[%-5level][%thread] - %msg%n</pattern> -->
+        </encoder>
+    </appender>
+
+    <!-- 日志级别若没显示定义，则继承最近的父logger（该logger需显示定义level,直到rootLogger）的日志级别-->
+    <!-- logger的appender默认具有累加性（默认日志输出到当前logger的appender和所有祖先logger的appender中），可通过配置 “additivity”属性修改默认行为-->
+    <logger name="com.xz"  level="debug">
+        <appender-ref ref="FILE"/>
+    </logger>
+
+    <!-- 日志输出级别 -->
+    <root level="WARN">
+        <appender-ref ref="STDOUT" />
+    </root>
+</configuration>
