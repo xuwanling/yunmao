@@ -134,7 +134,7 @@ public class CtrlService {
         try {
             JsonObject bdata = checkAndGetBdata(context, new String[]{"homeId"});
             String homeId = bdata.getString("homeId");
-            JsonObject param = new JsonObject().put("homeId", homeId);
+            JsonObject param = new JsonObject().put("hotelId", homeId);
             buildSdataFromCenter(HTTP_URL_CENTER + "/room/getRoomAndDev", param, sdata);
         } catch (Exception e) {
             sdata.errorCode = 1;
