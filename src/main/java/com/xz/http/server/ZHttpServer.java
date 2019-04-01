@@ -37,23 +37,23 @@ public class ZHttpServer {
         this.router = Router.router(vertx);
         this.port = port;
 
-        JsonObject authConfig = new JsonObject().put("KeyStore", new JsonObject()
-                .put("type", "jceks")
-                .put("path", "keystore.jceks")
-                .put("password", "secret")
-        );
-        JWTAuth jwtAuth = JWTAuth.create(vertx, authConfig);
+//        JsonObject authConfig = new JsonObject().put("KeyStore", new JsonObject()
+//                .put("type", "jceks")
+//                .put("path", "keystore.jceks")
+//                .put("password", "secret")
+//        );
+//        JWTAuth jwtAuth = JWTAuth.create(vertx, authConfig);
 
 
       //  this.router.route("/user/*").handler(JWTAuthHandler.create(jwtAuth));
 
-        router.route("/user/login").handler(ctx->{
-            if ("paulo".equals(ctx.request().getParam("username")) &&
-                    "secret".equals(ctx.request().getParam("password"))) {
-            } else {
-                ctx.response().end(jwtAuth.generateToken(new JsonObject().put("sub", "paulo"), new JWTOptions()));
-            }
-        });
+//        router.route("/user/login").handler(ctx->{
+//            if ("paulo".equals(ctx.request().getParam("username")) &&
+//                    "secret".equals(ctx.request().getParam("password"))) {
+//            } else {
+//                ctx.response().end(jwtAuth.generateToken(new JsonObject().put("sub", "paulo"), new JWTOptions()));
+//            }
+//        });
 
 
         //允许跨域
